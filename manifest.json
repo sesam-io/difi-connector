@@ -1,0 +1,29 @@
+{
+  "datatypes": {
+    "enhetsregisteret": {
+      "template": "templates/enhetsregisteret.json",
+      "property-mapping": {
+        "hovedenhet": "enhetsregisteret",
+        "avvikling": "avvikling",
+        "konkurs": "konkurs",
+        "regiaa": "regiaa",
+        "regifr": "regifr",
+        "regimva": "regimva",
+        "regifriv": "regifriv",
+        "tvangsavvikling": "tvangsavvikling",
+        "organisasjonsform": "organisasjonsform",
+        "forradrland": "land",
+        "ppostland": "land",
+        "forradrpostnr": "postnummer",
+        "ppostnr": "postnummer",
+        "sektorkode": "sektorkode",
+        "forradrkommnr": "kommnr",
+        "nkode1": "nkode",
+        "nkode2": "nkode",
+        "nkode3": "nkode"
+      },
+      "stage": "prep"
+    }
+  },
+  "system-template": "templates/system.json"
+}

@@ -1,0 +1,40 @@
+[{
+  "_id": "{{@ system @}}-enhetsregisteret-raw",
+  "type": "pipe",
+  "source": {
+    "type": "csv",
+    "system": "{{@ system @}}",
+    "delimiter": ";",
+    "primary_key": "orgnr",
+    "url": "brreg/enhetsregisteret"
+  },
+  "pump": {
+    "cron_expression": "0 6 * * ?"
+  },
+  "add_namespaces": false
+},
+  {
+  "_id": "{{@ system @}}-enhetsregisteret-prep",
+  "type": "pipe",
+  "source": {
+    "type": "dataset",
+    "dataset": "{{@ system @}}-enhetsregisteret-raw"
+  },
+  "transform": {
+    "type": "dtl",
+    "rules": {
+      "default": [
+        ["copy", "*"],
+        ["comment", "*** Fix data types ***"],
+        ["add", "ansatte_dato-date",
+          ["datetime-parse", "%d.%m.%Y", "_S.ansatte_dato"]
+        ],
+        ["add", "regdato-date",
+          ["datetime-parse", "%d.%m.%Y", "_S.regdato"]
+        ]
+      ]
+    }
+  },
+  "add_namespaces": false
+}
+]
