@@ -1,5 +1,8 @@
 {
   "_id": "{{@ system @}}",
   "type": "system:url",
-  "url_pattern": "http://hotell.difi.no/download/%s"
+  "url_pattern": "http://hotell.difi.no/download/%s",
+  "metadata": {
+    "test": "hello"
+  }
 }
